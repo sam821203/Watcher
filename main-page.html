@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- ----------------------------------CSS stylesheet---------------------------------- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ----------------------------------fonts & icons---------------------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,300;1,400;1,500&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/1392152695.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    /* ------------------------------------global------------------------------------ */
+    :root {
+        --main-dark-color: #0B1E27;
+        --main-light-color: #F9F9F9;
+        --standard-spacing: .20rem;
+        --main-border: 1px solid #F9F9F9;
+        --main-border-radius: 30px; 
+    }
+
+    body {
+        color: var(--main-light-color);
+        background-color: var(--main-dark-color);
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    a {
+        text-emphasis: none;
+        color: var(--main-light-color);
+    }
+
+    a:hover {
+        color: var(--main-light-color);
+        text-decoration: none;
+    }
+
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .section-title {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 3rem;
+        padding-bottom: 5rem;
+        opacity: .9;
+    }
+
+    .sub-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        font-weight: 400;
+        line-height: 2rem;
+        letter-spacing: 0.03rem;
+        opacity: .8;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pl-32 {
+        padding-left: 32px;
+    }
+
+    .pr-32 {
+        padding-right: 32px;
+    }
+
+    .px-32 {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .pl-60 {
+        padding-left: 60px;
+    }
+
+    .pr-80 {
+        padding-right: 80px;
+    }
+
+    .pl-200 {
+        padding-left: 200px;
+    }
+
+    .pl-260 {
+        padding-left: 260px;
+    }
+
+    .pr-260 {
+        padding-right: 260px;
+    }
+
+    .mt-minus-24 {
+        margin-top: -24px;
+    }
+
+    .mb-70 {
+        margin-bottom: 70px;
+    }
+
+    .mb-200 {
+        margin-bottom: 200px;
+    }
+
+    .tag {
+        padding: 6px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: var(--main-border-radius);
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+    }
+
+    .tag-full {
+        background-color: #ED4E0F;
+    }
+
+    .tag-unfull {
+        background-color: #36B721;
+    }
+
+    .tag-waiting {
+        background-color: #688ACA;
+    }
+
+    .arrow-r {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    } 
+
+    .arrow-r:hover {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }  
+
+    .italic-garamond {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+    }
+
+    /* -------------------sam navbar------------------- */
+    .sam-navbar {
+        background-color: #0b1e272c;
+        border-bottom: 1px solid white;
+        backdrop-filter: blur(6px) opacity(1);
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .logo {
+        width: 14%; 
+        opacity: .95;
+    }
+
+    .logotype {
+        letter-spacing: .2rem;
+        font-size: 20px;
+    }
+
+    .sam-navbar-m, .sam-navbar-r div {
+        font-weight: 400;
+        opacity: .9;
+    }
+
+    .sam-navbar-l, .sam-navbar-m, .sam-navbar-r {
+        width: 33.33%;
+    }
+
+    .sam-navbar .register {
+        min-width: 100px;
+        min-height: 30px;
+        border: var(--main-border);
+        border-radius: var(--main-border-radius);
+    }
+
+    .sam-navbar .search-icon {
+        width: 24px;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .sam-navbar .search-icon img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .sam-navbar .fa-bars {
+        font-size: 1.6rem;
+    }
+
+    /* -------------------middle content------------------- */
+    .hero-section .container {
+        position: relative;
+    }
+
+    .hero-section .row1 {
+        padding-top: 70px;
+    }
+
+    .hero-section .middle-content-lg {
+        height: 100vh;
+        padding-top: 70px;
+    }
+
+    .hero-section .middle-content-md {
+        height: 40vh;
+        padding-top: 0px;
+    }
+
+    .hero-section .middle-content-sm {
+        height: 42vh;
+        padding-top: 0px;
+    }
+
+    .hero-section .italic-garamond {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+
+    .hero-section .middle-content-lg .main-title-lg {
+        font-size: 3.75rem;
+        font-weight: 300;
+        opacity: 1;
+    }
+
+    .hero-section .middle-content-md .main-title-md {
+        font-size: 2.75rem;
+        font-weight: 300;
+        opacity: 1;
+    }
+
+    .hero-section .middle-content-sm .main-title-sm {
+        font-size: 3.25rem;
+        font-weight: 300;
+        opacity: 1;
+    }
+
+    .hero-section .middle-content-lg .reading {
+        margin-top: 32px;
+        border-radius: var(--main-border-radius);
+        border: var(--main-border);
+        width: 58%;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+    }
+
+    .hero-section .middle-content-md .reading {
+        margin-top: 172px;
+        border-radius: var(--main-border-radius);
+        background-color: var(--main-light-color);
+        color: var(--main-dark-color);
+        width: 64%;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+    }
+
+    .hero-section .reading-sm {
+        margin-top: 30px;
+        border: var(--main-border);
+        border-radius: var(--main-border-radius);
+        width: 60%;
+        font-weight: 500;
+        letter-spacing: 0.1rem;
+    }
+
+    .decoration-line-l {
+        position: absolute;
+        top: 250px;
+        left: 0;
+        transform: translateX(-45%);
+    }
+
+    .decoration-line-r {
+        position: absolute;
+        top: 200px;
+        right: 0;
+        transform: translateX(40%);
+    }
+
+    .line-l {
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        background-color: var(--main-light-color);
+        height: 300px;
+        width: 1px;
+    }
+
+    .line-rt {
+        background-color: var(--main-light-color);
+        height: 220px;
+        width: 1px;
+    }
+
+    .line-rb {
+        background-color: var(--main-light-color);
+        height: 220px;
+        width: 1px;
+    }
+
+    .decoration-line-l span {
+        min-width: 100px;
+        transform: rotate(-90deg);
+        letter-spacing: var(--standard-spacing);
+        font-size: .75rem;
+    }
+
+    .cross-lines {
+        width: 20px;
+        height: 20px;  
+        background: 
+            linear-gradient(to top left,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) calc(50% - 0.8px),
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0) calc(50% + 0.8px),
+                rgba(255, 255, 255, 0) 100%),
+            linear-gradient(to top right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) calc(50% - 0.8px),
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0) calc(50% + 0.8px),
+                rgba(255, 255, 255, 0) 100%);
+    }
+
+    .diamond-indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+    }
+
+    .diamond-1, 
+    .diamond-3 {
+      width: 15px;
+      height: 15px;
+      border: 1px solid var(--main-light-color);
+      transform: rotate(-45deg);
+    }
+
+    .diamond-2 {
+        width: 15px;
+        height: 15px;
+        background-color: var(--main-light-color);
+        transform: rotate(-45deg);
+    }
+
+    /* --------------------------service-------------------------- */
+    .hero-section .service-card {
+        height: 100%;
+        position: relative;
+        border: var(--main-border);
+        border-radius: 12px;
+    }
+
+    .hero-section .img-wrap {
+        width: 104px;
+        height: 104px;
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
+
+    .hero-section .img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding-left: 8px;
+        padding-right: 8px;
+        opacity: .9;
+    }
+
+    .hero-section .blue-overlay {
+        width: 100px;
+        height: 8px;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--main-dark-color);
+        z-index: 998;
+    }
+
+    
+
+    /* ---------------------------------handbook section--------------------------------- */
+    .handbook-section .more {
+        border: var(--main-border);
+        border-radius: var(--main-border-radius);
+        padding: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 200px;
+    }
+
+    .handbook-section .arrow-wrap img {
+        width: 50%;
+        height: 50%;
+    }
+
+    .handbook-section .number {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .handbook-section-carousel {
+        width: 100%;
+        background-color: var(--main-dark-color);
+    }
+
+    .handbook-section-carousel .carousel-wrapper {
+        width: 2800px;
+        display: flex;
+        transform: translateX(0px);
+        transition: .6s;
+    }
+
+    .handbook-section-carousel .imgs-wrap {
+        max-width: 280px;
+        height: 440px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .handbook-section-carousel .imgs-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%; 
+    }
+
+    .handbook-section-carousel .imgs-wrap::after {
+        display: block;
+        position: relative;
+        background-image: radial-gradient(hsla(199, 56%, 10%, 0),
+            hsla(199, 56%, 10%, 1) 60%,
+            hsla(199, 56%, 10%, 1) 70%
+        ); 
+        margin-top: -441px;
+        height: 440px;
+        width: 100%;
+        content: '';
+    }
+
+    .handbook-section-carousel h6 {
+        opacity: 0;
+    }
+
+    .imgs-wrap:hover::after { 
+        background-image: radial-gradient(hsla(199, 56%, 10%, 0.1) 68%,
+            hsla(199, 56%, 10%, 1) 70%
+        ); 
+    }
+
+    .imgs-wrap:hover::after h6 { 
+        opacity: 1;
+        letter-spacing: .1rem;
+    }
+
+    .handbook-section-carousel .arrow-wrap img {
+        width: 25%;
+        height: 25%;
+    }
+
+    .handbook-section-carousel .arrow-l,
+    .handbook-section-carousel .arrow-r {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    }  
+
+    .handbook-section-carousel .arrow-l:hover,
+    .handbook-section-carousel .arrow-r:hover {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }  
+
+    /* ---------------------------------collection section--------------------------------- */
+    .diamond-collection-title .row1 {
+        cursor: pointer;
+    }
+    
+    .diamond-collection-title .arrow-wrap img {
+        width: 50%;
+        height: 50%;
+    }
+
+    .diamond-collection-title {
+        margin-bottom: 125px;
+    }
+
+    .diamond-collection-title .number-sm {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .diamond-collection-section {
+        margin-bottom: 175px;
+    }
+
+    .diamond__container {
+        max-width: 150px;
+        margin: 0 auto;
+        margin-bottom: 60px;
+    }
+
+    .diamond__container .diamond__item {
+        text-decoration: none;
+        font-size: 16px;
+        width: 150px;
+        height: 150px;
+        border: 1px solid var(--main-light-color);
+        margin-top: 61px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        opacity: .4;
+        backface-visibility: hidden; 
+        perspective: 1000;
+        transform: rotate(-45deg);
+    }
+
+    .diamond__container > li {
+        display: inline-block;
+    }
+
+    .diamond__container .diamond__item .diamond__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        transform: rotate(45deg);
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__info {
+        z-index: 10;
+        opacity: 0;
+        transform: translate3d(0, -45px, 0);
+        transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__info p {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .diamond__container .diamond__item:hover {
+        -webkit-animation: flash 1.5s;
+        animation: flash 1.5s;
+        border: 2px solid var(--main-light-color);
+    }
+
+    .diamond__container .diamond__item:hover .diamond__content .content__info {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+    }
+
+    @-webkit-keyframes flash {
+        0% {
+            opacity: .1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes flash {
+        0% {
+            opacity: .1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* -------------------images------------------- */
+    .diamond__container .diamond__item .diamond__content .content__image--1 {
+        background: url("images/diamond-1.jpg") no-repeat center center ;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--2 {
+        background: url("images/diamond-2.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--3 {
+        background: url("images/diamond-3.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--4 {
+        background: url("images/diamond-4.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--5 {
+        background: url("images/diamond-5.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--6 {
+        background: url("images/diamond-6.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--7 {
+        background: url("images/diamond-7.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--8 {
+        background: url("images/diamond-8.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--9 {
+        background: url("images/diamond-9.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--10 {
+        background: url("images/diamond-10.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image--11 {
+        background: url("images/diamond-11.jpg") no-repeat center center;
+    }
+
+    .diamond__container .diamond__item .diamond__content .content__image {
+        background-size: cover;
+        height: 200%;
+        width: 200%;
+        margin-top: -50%;
+        margin-left: -50%;
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* ---------------------------------birdwatching section--------------------------------- */  
+    .birdwatching-section .row2 {
+        height: 100%;
+        border-bottom: 1px solid var(--main-light-color);
+        overflow: hidden;
+    }
+
+    .birdwatching-section .row1 .section-title {
+        font-size: 3.5rem;
+        font-weight: 300;
+        opacity: .9;
+        padding-bottom: 0;
+    }
+
+    .birdwatching-section .birdwatching-sub {
+        cursor: pointer
+    }
+
+    .birdwatching-section .birdwatching-content {
+        padding-top: 64px;
+    }
+    
+    .birdwatching-section .img-wrap {
+        position: relative;
+        object-fit: cover;
+        object-position: 50% 50%;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    .birdwatching-section .birdwatching-sub p {
+        line-height: 4rem;
+    }
+
+    /* ---------------img1 translate xl--------------- */
+    .birdwatching-section .img1-translate-xl {
+        transform: translate(-10%, 2%);
+    } 
+
+    .birdwatching-section .img2-translate-xl {
+        transform: translate(-10%, 8%);
+    } 
+
+
+    /* ---------------img1 translate lg--------------- */
+    .birdwatching-section .img1-translate-lg {
+        transform: translate(0, 18%);
+    } 
+
+    .birdwatching-section .img2-translate-lg {
+        transform: translate(-10%, 12%);
+    } 
+
+    .birdwatching-section .img3-translate-lg {
+        transform: translate(0, 12%);
+    } 
+
+    /* ---------------img1 translate md & sm--------------- */
+    .birdwatching-section .img3-translate-sm {
+        transform: translate(-1%, 8%);
+    } 
+    
+    .birdwatching-section img {
+        width: 96%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .birdwatching-section .img3 img {
+        width: 86%;
+        height: auto;
+        border-radius: 50%;
+    } 
+
+    .birdwatching-section .circle-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 96%;
+        height: 100%;
+        border-radius: 49%;
+        background-image: radial-gradient( hsla(199, 56%, 10%, 0), 
+            hsla(199, 56%, 10%, 0), 
+            hsla(199, 56%, 10%, 0.3) 30%, 
+            hsla(199, 56%, 10%, 0.4) 40%, 
+            hsla(199, 56%, 10%, 1) 70%
+        ); 
+    }
+
+    .birdwatching-section .img3-gradient {
+        width: 86%;
+    }
+
+    .birdwatching-section .decoration-line {
+        padding-right: 1rem;
+        background-color: var(--main-light-color);
+        height: 1px;
+        width: 50px;
+    }
+
+    .birdwatching-section .join {
+        border: var(--main-border);
+        border-radius: var(--main-border-radius);
+        padding: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        max-width: 275px;
+    }
+
+    .birdwatching-section .arrow-r {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: .3s ease-in-out;
+        transition: .3s ease-in-out;
+    } 
+
+    .birdwatching-section .birdwatching-sub:hover .arrow-r {
+        -webkit-transform: scale(1.3);
+        transform: scale(1.3);
+    }  
+
+    .birdwatching-section .arrow-wrap img {
+        width: 50%;
+        height: 50%;
+    }
+
+    /* -----------------------------------------break point----------------------------------------- */
+    @media (min-width: 480px) {
+        /* ------------------hero section------------------ */
+        .hero-section .row1 {
+            padding-top: 36px;
+        }
+
+        .hero-section {
+            background: url("images/main-page-sm-2.jpg") top center no-repeat;
+            background-size: contain;
+        }
+
+        /* ------------------sam navbar------------------ */ 
+        .sam-navbar {
+            height: 60px;
+        }
+
+        /* ------------------service------------------ */
+        .hero-section .row2 {
+            margin-top: 60px;
+            padding-bottom: 70px;
+        }
+
+        .hero-section .col-12 {
+            margin-bottom: 80px;
+        }
+
+        /* ------------------handbook section carousel------------------ */
+        .handbook-section-carousel {
+            margin-bottom: 40px;
+        }
+
+        .handbook-section-carousel .col-12 {
+            overflow: auto;
+        }
+
+        .handbook-section-carousel .col-12::-webkit-scrollbar {
+            display: none;
+        }
+
+        .handbook-section-carousel .arrow-wrap img {
+            width: 60%;
+            height: 60%;
+        }
+
+        /* ---------------diamond collection--------------- */
+        .diamond__container {
+            max-width: 300px;
+        }
+
+        .diamond__container > li {
+            display: block;
+            margin-top: -106px;
+        }
+
+        .diamond__container > li:first-child {
+            margin-top: 0;
+        }
+
+        .diamond__container > li:nth-child(odd) {
+            margin-left: 16px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .diamond__container > li:nth-child(even) {
+            margin-left: 124px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .birdwatching-sub span {
+            letter-spacing: var(--standard-spacing);
+            font-size: 1.75rem;
+        }
+    }
+
+    @media (min-width: 768px) {
+        /* ------------------hero section------------------ */
+        .hero-section {
+            background: url("images/main-page-bg-2.jpg") top center no-repeat;
+            background-size: contain;
+        }
+
+        .hero-section .row1 {
+            padding-top: 46px;
+        }
+
+        /* ------------------service------------------ */
+        .hero-section .row2 {
+            margin-top: 100px;
+            padding-bottom: 70px;
+        }
+
+        /* ------------------handbook section carousel------------------ */
+        .handbook-section-carousel {
+            margin-bottom: 120px;
+        }
+
+        .handbook-section-carousel .col-12 {
+            overflow: hidden;
+        }
+
+        .handbook-section-carousel .arrow-wrap img {
+            width: 40%;
+            height: 40%;
+        }
+
+        /* ---------------diamond collection--------------- */
+        h1 {
+            font-size: 30px;
+        }
+
+        .diamond__container {
+            max-width: 720px;
+            padding-left: 60px;
+        }
+
+        .diamond__container > li {
+            display: inline-block;
+            margin-top: 22px;
+            padding-right: 16px;
+        }
+
+        .diamond__container > li:nth-child(n+2) {
+            margin-top: -120px;
+            margin-left: 90px;
+            padding-right: 16px;
+        }
+
+        .diamond__container li:nth-child(3n) {
+            padding-left: 28px;
+            margin-left: 10px;
+            margin-right: 130px;
+        }
+
+        .diamond__container > li:nth-child(3n+1) {
+            margin-left: 0;
+        }
+
+        .diamond__container > li:nth-child(3n+5) {
+            margin-left: 90px;
+        }
+
+        .diamond__container > li:nth-child(3n+3) {
+            margin-top: -120px;
+            margin-left: 142px;
+        }
+
+        .diamond__container .diamond__item {
+            width: 230px;
+            height: 230px;
+        }
+
+        /* -------------------birdwatching------------------- */
+        .birdwatching-section .row2 {
+            height: 100%;
+        }
+
+        .birdwatching-sub span {
+            font-size: 3.5rem;
+            letter-spacing: 0;
+        }
+    }
+
+    @media (min-width: 992px) {
+        /* ------------------hero section------------------ */
+        .hero-section .middle-content-lg {
+            height: 70vh;
+            padding-top: 70px;
+        }
+
+        /* ------------------service------------------ */
+        .hero-section .row2 {
+            margin-top: 140px;
+            padding-bottom: 70px;
+        }
+
+        /* ------------------handbook section carousel------------------ */
+        .handbook-section-carousel {
+            margin-bottom: 120px;
+        }
+
+        .handbook-section-carousel .col-12 {
+            overflow: hidden;
+        }
+
+        .handbook-section-carousel .arrow-wrap img {
+            width: 30%;
+            height: 30%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        /* ------------------hero section------------------ */
+        .hero-section .middle-content-lg {
+            height: 100vh;
+            padding-top: 70px;
+        }
+
+        /* ------------------service------------------ */
+        .hero-section .row2 {
+            margin-top: 300px;
+            padding-bottom: 70px;
+        }
+
+        /* ------------------sam navbar------------------ */
+        .hero-section {
+            background: url("images/main-page-bg-2.jpg") top center no-repeat;
+            background-size: cover;
+        }
+
+        .sam-navbar {
+            min-height: 70px;
+        }
+        
+        /* ------------------handbook section carousel------------------ */
+        .handbook-section-carousel {
+            margin-bottom: 120px;
+        }
+
+        .handbook-section-carousel .col-12 {
+            overflow: hidden;
+        }
+
+        .handbook-section-carousel .arrow-wrap img {
+            width: 25%;
+            height: 25%;
+        }
+
+        /* ---------------diamond collection--------------- */
+        .diamond__container {
+            max-width: 1140px;
+            padding-left: 72px;
+        }
+
+        .diamond__container .diamond__item {
+            width: 180px;
+            height: 180px;
+        }
+
+        .diamond__container > li:nth-child(n) {
+            padding: 0;
+            margin: 0;
+            margin-right: 84px;
+        }
+
+        .diamond__container > li:nth-child(5) {
+            margin-left: 134px;
+            margin-right: 84px;
+        }
+
+        .diamond__container > li:nth-child(n+5) {
+            margin-top: -100px;
+        }
+
+        /* -------------------birdwatching------------------- */
+        .birdwatching-section .row2 {
+            max-height: 600px;
+        }
+
+        .birdwatching-sub span {
+            font-size: 3.5rem;
+            letter-spacing: 0;
+        }
+    }
+
+    /* ---------------------------------about us section--------------------------------- */
+    .about-us-section {
+        margin-bottom: 96px;
+    }
+
+    .about-us-wrap h3 {
+        position: absolute;
+        background-color: red;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .about-us-section .rotate-wrap {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .about-us-section .rotate {
+        transform: rotate(-90deg);
+    }
+
+    .about-us-section .number {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+
+    .about-us-l,
+    .about-us-r {
+        padding: 32px;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="hero-section">
+            <div class="sam-navbar">
+                <div class="container">
+                    
+                    <!-- -----------------display xl----------------- -->
+                    <div class="row d-none d-sm-none d-md-none d-lg-none d-xl-block pt-3">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4 sam-navbar-l px-0">
+                                <a class="d-flex align-items-center" href="#">
+                                    <div class="logo pr-3">
+                                        <img src="images/birdlove.svg" alt="">
+                                    </div>
+                                    <div class="logotype">
+                                        <span class="pr-5">WATCHER</span>
+                                    </div>
+                                </a>
+                            </div>
+        
+                            <div class="col-4 sam-navbar-m my-auto px-0">
+                                <div class="d-flex justify-content-between">
+                                    <a href="#">
+                                        <div class="pl-0 pr-3">
+                                            <span>最新消息</span>
+                                            <a href="#"><i class="fas fa-chevron-down text-light"></i></a>
+                                        </div>
+                                    </a>
+                                    <a class="pr-3" href="#">
+                                        <div>走，賞鳥趣</div>
+                                    </a>
+                                    <a class="pr-3" href="#">
+                                        <div>飛羽季刊</div>
+                                    </a>
+                                    <af href="#">
+                                        <div>關於我們</div>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-4 sam-navbar-r px-0">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <a class="pr-4" href="#">
+                                        <div>登入</div>
+                                    </a>
+                                    <a class="register d-flex justify-content-center align-items-center" href="#">
+                                        <div>註冊</div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- -----------------display > lg----------------- -->
+                    <div class="row d-block d-sm-block d-md-block d-lg-block d-xl-none pt-3">
+                        <div class="d-flex justify-content-between pt-1">
+                            <div class="col-6 sam-navbar-l">
+                                <a class="d-flex align-items-center" href="#">
+                                    <div class="logotype">
+                                        <span class="pr-5">WATCHER</span>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="col-6 sam-navbar-r">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div class="search-icon mr-4">
+                                        <a href="#">
+                                            <img src="images/6022ff315e9b68cfba7752a7_search.svg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="menu-icon">
+                                        <a href="#">
+                                            <i class="fas fa-bars text-light"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="container">
+                <!-- -----------------row1----------------- -->
+                <!-- -----------------display lg----------------- -->
+                <div class="row row1">
+                    <div class="decoration-line-l d-none d-sm-none d-md-none d-lg-block d-xl-block px-0">
+                        <div class="d-flex flex-column align-items-center">
+                            <span>SOCIAL MEDIA</span>
+                            <div class="line-l"></div>
+                            <a href=""><i class="fab fa-instagram text-white pb-2"></i></a>
+                            <a href=""><i class="fab fa-youtube text-white pb-2"></i></a>
+                            <a href=""><i class="fab fa-tiktok text-white"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 d-none d-sm-none d-md-none d-lg-block d-xl-block px-0">
+                        <div class="middle-content-lg d-flex flex-column align-items-center justify-content-between">
+                            <div class="text-center">
+                                <div>
+                                    <div class="pb-2">專題文章</div>
+                                    <div class="pb-3"><span class="italic-garamond">Experience 6</span></div>
+                                </div>
+                                <div class="cross-lines mx-auto" ></div>
+                                <p class="main-title-lg pt-4 pb-5">雪山賞鳥</p>
+                                <a href="#">
+                                    <div class="reading mx-auto py-2">閱讀全文</div>
+                                </a>
+                            </div>
+
+                            <div>
+                            </div>
+                        </div>
+                    </div>  
+
+                    <div class="decoration-line-r d-none d-sm-none d-md-none d-lg-block d-xl-block px-0">
+                        <div class="d-flex flex-column">
+                            <div class="line-rt mb-5"></div>
+                            <div class="line-rb mt-5"></div>
+                        </div>
+                        <div class="diamond-indicators">
+                            <div class="diamond-1"></div>
+                            <div class="diamond-2 my-3"></div>
+                            <div class="diamond-3"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------row1----------------- -->
+                <!-- -----------------display md----------------- -->
+                <div class="row row1">
+                    
+                    <div class="col-12 d-none d-sm-none d-md-block d-lg-none d-xl-none px-0">
+                        <div class="middle-content-md d-flex flex-column align-items-center justify-content-between">
+                            <div class="text-center">
+                                <div>
+                                    <div class="pb-2">專題文章</div>
+                                    <div class="pb-3"><span class="italic-garamond">Experience 6</span></div>
+                                </div>
+                                <div class="cross-lines mx-auto" ></div>
+                                <p class="main-title-md pt-4 pb-5">雪山賞鳥</p>
+                                <a href="#">
+                                    <div class="reading mx-auto py-2">閱讀全文</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+
+                <!-- -----------------row1----------------- -->
+                <!-- -----------------display sm----------------- -->
+                <div class="row row1 d-block d-sm-block d-md-none d-lg-none d-xl-none">
+                    <div class="col-12 px-0">
+                        <div class="middle-content-sm d-flex flex-column justify-content-end align-items-center mt-3">
+                            <div class="text-center">
+                                <div><span class="italic-garamond">Experience 6</span></div>
+                            </div>
+
+                            <p class="main-title-sm pt-3 pb-5">雪山賞鳥</p>
+
+                            <!-- <div class="cross-lines mx-auto"></div> -->
+
+                        </div>
+                    </div>  
+                    <div class="col-12">
+                        <a href="#">
+                            <div class="reading-sm mx-auto py-3 text-center">閱讀全文</div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- -----------------row2----------------- -->
+                <!-- -----------------display lg----------------- -->
+                <div class="row row2">
+                    <div class="col-lg-3 d-none d-sm-none d-md-none d-lg-block d-xl-block pl-0 pr-4">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/TREATMENT.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title pt-3 pb-3">我撿到鳥</h5>
+                            <p class="px-4 pb-4">撿到野鳥時，請先來電與本社團聯絡，勿逕自帶回長期飼養，受傷、生病之野鳥請儘量送來救傷中心</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-none d-sm-none d-md-none d-lg-block d-xl-block px-3">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/CARE.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title pt-3 pb-3">我要捐款</h5>
+                            <p class="px-4 pb-4">推廣野生鳥類的欣賞、研究與保育需要相當的資源，您的捐款支持能為鳥類和環境付出更多的心力</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-none d-sm-none d-md-none d-lg-block d-xl-block px-3">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/DOCUMENT.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title pt-3 pb-3">國家鳥類報告</h5>
+                            <p class="px-4 pb-4">提供整合了臺灣長期透過公民科學和監測調查的鳥類類群，特定鳥種的研究和鳥類生存狀態評估報告</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-none d-sm-none d-md-none d-lg-block d-xl-block pl-4 pr-0">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/PICTURE.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title pt-3 pb-3">鳥類藝術牆</h5>
+                            <p class="px-4 pb-4">把手機裡的拍到的鳥類照片，線上編輯，自由排版，加上心情文字編印成獨一無二的鳥類回憶藝術牆</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display md----------------- -->
+                <div class="row">
+                    <div class="col-md-6 d-none d-sm-none d-md-block d-lg-none d-xl-none pl-0 pr-4 mb-70">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/TREATMENT.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">我撿到鳥</h5>
+                            <p class="px-4 pb-4">撿到野鳥時，請先來電與本社團聯絡，勿逕自帶回長期飼養，受傷、生病之野鳥請儘量送來救傷中心</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-sm-none d-md-block d-lg-none d-xl-none pl-4 pr-0 mb-70">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/CARE.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">我要捐款</h5>
+                            <p class="px-4 pb-4">推廣野生鳥類的欣賞、研究與保育需要相當的資源，您的捐款支持能為鳥類和環境付出更多的心力</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-sm-none d-md-block d-lg-none d-xl-none pl-0 pr-4">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/DOCUMENT.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">國家鳥類報告</h5>
+                            <p class="px-4 pb-4">提供整合了臺灣長期透過公民科學和監測調查的鳥類類群，特定鳥種的研究和鳥類生存狀態評估報告</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-none d-sm-none d-md-block d-lg-none d-xl-none pl-4 pr-0">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/PICTURE.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">鳥類藝術牆</h5>
+                            <p class="px-4 pb-4">把手機裡的拍到的鳥類照片，線上編輯，自由排版，加上心情文字編印成獨一無二的鳥類回憶藝術牆</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display sm----------------- -->
+                <div class="row row2 mt-0">
+                    <div class="col-12 d-block d-sm-block d-md-none d-lg-none d-xl-none px-32">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/TREATMENT.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">我撿到鳥</h5>
+                            <p class="px-4 pb-4">撿到野鳥時，請先來電與本社團聯絡，勿逕自帶回長期飼養，受傷、生病之野鳥請儘量送來救傷中心</p>
+                        </div>
+                    </div>
+
+                    <div class="col-12 d-block d-sm-block d-md-none d-lg-none d-xl-none px-32">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/CARE.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">我要捐款</h5>
+                            <p class="px-4 pb-4">推廣野生鳥類的欣賞、研究與保育需要相當的資源，您的捐款支持能為鳥類和環境付出更多的心力</p>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-sm-block d-md-none d-lg-none d-xl-none px-32">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/DOCUMENT.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">國家鳥類報告</h5>
+                            <p class="px-4 pb-4">提供整合了臺灣長期透過公民科學和監測調查的鳥類類群，特定鳥種的研究和鳥類生存狀態評估報告</p>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-sm-block d-md-none d-lg-none d-xl-none px-32">
+                        <div class="service-card text-center pt-5">
+                            <div class="img-wrap">
+                                <img src="images/PICTURE.svg" alt="">
+                            </div>
+                            <div class="blue-overlay"></div>
+                            <h5 class="sub-title py-3">鳥類藝術牆</h5>
+                            <p class="px-4 pb-4">把手機裡的拍到的鳥類照片，線上編輯，自由排版，加上心情文字編印成獨一無二的鳥類回憶藝術牆</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="handbook-section">
+            <div class="container-fluid">
+
+                <!-- -----------------display xl----------------- -->
+                <div class="row row1 d-none d-sm-none d-md-none d-lg-none d-xl-block py-5 pl-260 pr-260 border-top border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0">
+                        <div class="col-10 px-0">
+                            <p class="section-title pb-0">台灣鳥類圖鑑</p>
+                        </div>
+                        <div class="col-2 arrow-r arrow-wrap d-flex justify-content-end px-0">
+                            <img src="images/arrow-right-5px.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-none d-xl-block pl-260 pr-260 border-bottom mb-5">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center border-left border-right">
+                        <div class="col-lg-3">
+                            <p class="d-flex align-items-center"><span class="number px-2">30</span>種特有鳥類</p>
+                        </div>
+                        <div class="col-lg-9 border-left border-right">
+                            <p class="py-4">台灣在世界動物地理分區上屬於東洋區和舊北區的交會地帶，有87科674種鳥類曾被記錄，其中有30種為台灣特有種，另有54個特有亞種</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- -----------------display lg----------------- -->
+                <div class="row row1 d-none d-sm-none d-md-none d-lg-block d-xl-none py-5 px-32 border-top border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0">
+                        <div class="col-10 px-0">
+                            <p class="section-title pb-0">台灣鳥類圖鑑</p>
+                        </div>
+                        <div class="col-2 arrow-r arrow-wrap d-flex justify-content-end px-0">
+                            <img src="images/arrow-right-5px.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-block d-xl-none pl-260 pr-260 border-bottom mb-5">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center border-left border-right">
+                        <div class="col-lg-3">
+                            <p class="d-flex flex-column justify-content-center align-items-center"><span class="number p-2">30</span>種特有鳥類</p>
+                        </div>
+                        <div class="col-lg-9 border-left border-right">
+                            <p class="py-4">台灣在世界動物地理分區上屬於東洋區和舊北區的交會地帶，有87科674種鳥類曾被記錄，其中有30種為台灣特有種，另有54個特有亞種</p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- -----------------display < md----------------- -->
+                <div class="row row1 d-block d-sm-block d-md-block d-lg-none d-xl-none py-5 px-32 border-top border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0">
+                        <div class="col-12 px-0">
+                            <p class="section-title pb-0">台灣鳥類圖鑑</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-block d-sm-block d-md-block d-lg-none d-xl-none border-bottom mb-5">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center">
+                        <div class="col-4">
+                            <p class="d-flex flex-column justify-content-center align-items-center"><span class="number p-2">30</span>種特有鳥類</p>
+                        </div>
+                        <div class="col-8 border-left">
+                            <p class="py-4">台灣在世界動物地理分區上屬於東洋區和舊北區的交會地帶，有87科674種鳥類曾被記錄，其中有30種為台灣特有種，另有54個特有亞種</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="handbook-section-carousel">
+            <div class="container-fluid">
+                <div class="row row1 mb-4">
+                    <div class="col-12">
+                        <div class="carousel-wrapper d-flex list-unstyled flex-nowrap">
+                            <li>
+                                <div class="imgs-wrap img-1 pb-2">
+                                    <img src="images/carousel-1-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">五色鳥</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-2 pb-2">
+                                    <img src="images/carousel-2-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">台灣藍鵲</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-3 pb-2">
+                                    <img src="images/carousel-3-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">白耳畫眉</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-4 pb-2">
+                                    <img src="images/carousel-4-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">白耳畫眉</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-5 pb-2">
+                                    <img src="images/carousel-5-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">台灣紫嘯鶇</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-6 pb-2">
+                                    <img src="images/carousel-6-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">褐頭花翼</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-7 pb-2">
+                                    <img src="images/carousel-7-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">黃山雀</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-8 pb-2">
+                                    <img src="images/carousel-8-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">台灣朱雀</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-9 pb-2">
+                                    <img src="images/carousel-9-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">赤腹山雀</h6>
+                            </li>
+                            <li>
+                                <div class="imgs-wrap img-10 pb-2">
+                                    <img src="images/carousel-10-wrap.jpg" alt="">
+                                </div>
+                                <h6 class="sub-title text-center">小彎嘴</h6>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display xl----------------- -->
+                <div class="row row2 d-none d-sm-none d-md-block d-lg-block d-xl-block pl-260 pr-260">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center"> 
+                            <button class="bg-transparent border-0">
+                                <div class="arrow-l arrow-wrap d-flex justify-content-start">
+                                    <img src="images/arrow-left-5px.svg" alt="">
+                                </div>
+                            </button>
+                            <button class="bg-transparent border-0">
+                                <div class="arrow-r arrow-wrap d-flex justify-content-end">
+                                    <img src="images/arrow-right-5px.svg" alt="">
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diamond-collection-title">
+            <div class="container-fluid">
+
+                <!-- -----------------display xl----------------- -->
+                <div class="row row1 d-none d-sm-none d-md-none d-lg-none d-xl-block py-5 pl-260 pr-260 border-top border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0 my-auto">
+                        <div class="col-10 px-0">
+                            <p class="section-title pb-0">鳥類藝術牆<span class="font-weight-lighter font-italic">&nbsp;&nbsp;&nbsp;Bird Wall Art</span></p>
+                        </div>
+                        <div class="col-2 arrow-r arrow-wrap d-flex justify-content-end px-0">
+                            <img src="images/arrow-right-5px.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display lg----------------- -->
+                <div class="row row1 d-none d-sm-none d-md-none d-lg-block d-xl-none">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0 border-top border-bottom px-32">
+                        <div class="col-10 px-0">
+                            <p class="section-title py-5">鳥類藝術牆<span class="font-weight-lighter font-italic">&nbsp;&nbsp;&nbsp;Bird Wall Art</span></p>
+                        </div>
+                        <div class="col-2 arrow-r arrow-wrap d-flex justify-content-end align-items-center px-0">
+                            <img src="images/arrow-right-5px.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-block d-xl-block pl-260 pr-260 border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 border-left">
+                            <div class="text-center">
+                                <p class="py-1 number-xl">1</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+                            <div class="text-center">
+                                <p class="py-1 number-xl">2</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 border-right">
+                            <div class="text-center">
+                                <p class="py-1 number-xl">3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-block d-xl-block pl-260 pr-260 border-bottom mb-5">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 border-left">
+                            <div class="text-center">
+                                <p class="py-4">將平常在路上拍到的鳥類照片記錄在此，編輯出你們之間的回憶</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 border-left border-right">
+                            <div class="text-center">
+                                <p class="py-4">隨時隨地的新增新的照片區塊，並客製排出自己喜歡的藝術牆</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 border-right">
+                            <div class="text-center">
+                                <p class="py-4">提供上傳鳥類聲音檔的功能，讓你更能記住不同鳥類的聲音</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display sm----------------- -->
+                <div class="row row2 d-block d-sm-block d-md-block d-lg-none d-xl-none py-4 px-32 border-top border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0 py-3">
+                        <div class="col-12">
+                            <div class="pb-2">
+                                <span class="sub-title font-weight-lighter font-italic">BIRD WALL ART</span>
+                            </div>
+                            <p class="section-title pb-0">鳥類藝術牆</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-block d-sm-block d-md-block d-lg-none d-xl-none border-bottom mb-5">
+                    <div class="birdwatching-sub d-flex flex-column align-items-center">
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-12 border-bottom">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-2 px-0">
+                                    <div class="number-sm border-right h-100 my-auto">1</div>
+                                </div>
+                                <div class="col-10 px-0">
+                                    <div class="text-center">
+                                        <p class="py-4">將平常在路上拍到的鳥類照片記錄在此，編輯出你們之間的回憶</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-12 border-bottom">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-2 px-0">
+                                    <div class="number-sm border-right h-100 my-auto">2</div>
+                                </div>
+                                <div class="col-10 px-0">
+                                    <div class="text-center">
+                                        <p class="py-4">隨時隨地的新增新的照片區塊，並客製排出自己喜歡的藝術牆</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-12 border-bottom">
+                            <div class="d-flex justify-content-between">
+                                <div class="col-2 px-0">
+                                    <div class="number-sm border-right h-100 my-auto">3</div>
+                                </div>
+                                <div class="col-10 px-0">
+                                    <div class="text-center">
+                                        <p class="py-4">提供上傳鳥類聲音檔的功能，讓你更能記住不同鳥類的聲音</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diamond-collection-section">
+            <ul class="diamond__container">
+                <li>
+                   <a title="#" class="diamond__item item1" href="#">
+                      <div class="diamond__content flashgroup" id="flash0">
+                         <div class="content__info">
+                            <p>2021.10.27</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--1"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item2" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2019.09.08</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--2"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item3" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2014.08.12</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--3"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item4" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2020.02.28</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--4"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item5" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2008.04.13</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--5"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item6" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2012.07.08</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--6"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item7" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2021.02.25</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--7"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                   <a title="#" class="diamond__item item8" href="#">
+                      <div class="diamond__content">
+                         <div class="content__info">
+                            <p>2018.05.09</p>
+                         </div>
+                         <div class="content__overlay"></div>
+                         <div class="content__image content__image--8"></div>
+                      </div>
+                   </a>
+                </li>
+                <li>
+                    <a title="#" class="diamond__item item9" href="#">
+                       <div class="diamond__content">
+                          <div class="content__info">
+                             <p>2005.09.16</p>
+                          </div>
+                          <div class="content__overlay"></div>
+                          <div class="content__image content__image--9"></div>
+                       </div>
+                    </a>
+                 </li>
+                 <li>
+                    <a title="#" class="diamond__item item10" href="#">
+                       <div class="diamond__content">
+                          <div class="content__info">
+                             <p>2017.03.01</p>
+                          </div>
+                          <div class="content__overlay"></div>
+                          <div class="content__image content__image--10"></div>
+                       </div>
+                    </a>
+                 </li>
+                 <li>
+                    <a title="#" class="diamond__item item11" href="#">
+                       <div class="diamond__content">
+                          <div class="content__info">
+                             <p>2019.02.18</p>
+                          </div>
+                          <div class="content__overlay"></div>
+                          <div class="content__image content__image--11"></div>
+                       </div>
+                    </a>
+                 </li>
+             </ul>
+        </div>
+
+        <div class="birdwatching-section">
+            <div class="container-fluid">
+
+                <!-- -----------------display xl----------------- -->
+                <div class="row row1 d-none d-sm-none d-md-none d-lg-none d-xl-block py-5 pl-260 pr-260 border-top border-bottom">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0">
+                        <div class="col-10">
+                            <p class="section-title pb-0">走，賞鳥趣<span class="font-weight-lighter font-italic">&nbsp;&nbsp;&nbsp;BIRDWATCHING</span></p>
+                        </div>
+                        <div class="col-2 arrow-r arrow-wrap d-flex justify-content-end">
+                            <img src="images/arrow-right-5px.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-none d-xl-block mb-200 pl-260 pr-80">
+                    <div class="d-flex">
+                        <div class="col-5 d-flex align-items-start">
+                            <div class="birdwatching-content pr-80">
+                                <div class="font-italic pb-3">2022年1月9(日)-11(二)</div>
+                                <h5 class="sub-title pb-4">花蓮布洛灣賞鳥遊 (HUALIEN)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-full mr-3">已額滿</span><span class="tag tag-waiting">可排候補</span></div>
+                                <p class="pb-5">花蓮布洛灣臺地是立霧溪下游的大型雙層河階，太魯閣語的意思是「追蹤獵物的地方」，這臺地曾經是太魯閣族人聚居的部落，現今太魯國國家公園管理處在此成立管理站。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-7">
+                            <div class="img-wrap img1-translate-xl">   
+                                <img src="images/travel-1.jpeg" alt="">
+                                <div class="circle-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-none d-xl-block mb-200 pl-260 pr-80">
+                    <div class="d-flex">
+                        <div class="col-6">
+                            <div class="img-wrap img2-translate-xl">   
+                                <img src="images/travel-2.jpeg" alt="">
+                                <div class="circle-gradient"></div>
+                            </div>
+                        </div>
+    
+                        <div class="col-6 d-flex align-items-start pl-0 pr-260">
+                            <div class="birdwatching-content mb-5">
+                                <div class="font-italic pb-3">2021年12月12日-13日</div>
+                                <h5 class="sub-title pb-4">武陵農場楓紅 (WULING FARM)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-unfull mr-3">還有位置</span></div>
+                                <p class="pb-5">有40種以上中高海拔山林鳥類，冬季可見高海拔鳥類降遷棲息與冬候鳥。小型靈巧的茶腹鳾、紅頭山雀、青背山雀、黃山雀，以及溪澗的鉛色水鶇、河烏、小剪尾等，尤以鵂鶹最具特色。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-none d-xl-block mb-200 pl-260 pr-80">
+                    <div class="d-flex">
+                        <div class="col-5 d-flex align-items-start">
+                            <div class="birdwatching-content">
+                                <div class="font-italic pb-3">2021年11月21日-22日</div>
+                                <h5 class="sub-title pb-4">南投梅峰農場(MEI-FENG FARM)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-full mr-3">已額滿</span></div>
+                                <p class="pb-5">農場設立於1937年日治時期，場址位於南投縣仁愛鄉山區。總面積約1092公頃 ，海拔分跨900至2700公尺。場區內氣候變化差異極大，四季鮮明遞嬗，生態資源多元豐富，為一渾然天成的教學研究場域。長期以來致力於高冷地園藝的教學研究及示範經營。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-7">
+                            <div class="img-wrap img3">   
+                                <img src="images/travel-3.jpeg" alt="">
+                                <div class="circle-gradient img3-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display lg----------------- -->
+                <div class="row row1 d-none d-sm-none d-md-none d-lg-block d-xl-none">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0 border-top border-bottom w-100 px-32 py-5">
+                        <div class="col-10">
+                            <p class="section-title">走，賞鳥趣<span class="font-weight-lighter font-italic">&nbsp;&nbsp;&nbsp;BIRDWATCHING</span></p>
+                        </div>
+                        <div class="col-2 arrow-r arrow-wrap d-flex justify-content-end">
+                            <img src="images/arrow-right-5px.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-block d-xl-none mb-200 px-32">
+                    <div class="d-flex">
+                        <div class="col-5 d-flex align-items-start">
+                            <div class="birdwatching-content">
+                                <div class="font-italic pb-3">2022年1月9(日)-11(二)</div>
+                                <h5 class="sub-title pb-4">花蓮布洛灣賞鳥遊 (HUALIEN)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-full mr-3">已額滿</span><span class="tag tag-waiting">可排候補</span></div>
+                                <p class="pb-5">花蓮布洛灣臺地是立霧溪下游的大型雙層河階，太魯閣語的意思是「追蹤獵物的地方」，這臺地曾經是太魯閣族人聚居的部落，現今太魯國國家公園管理處在此成立管理站。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-7">
+                            <div class="img-wrap img1-translate-lg">   
+                                <img class="w-100" src="images/travel-1.jpeg" alt="">
+                                <div class="w-100 circle-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-block d-xl-none mb-200 px-32">
+                    <div class="d-flex">
+                        <div class="col-6">
+                            <div class="img-wrap img2-translate-lg">   
+                                <img class="w-100" src="images/travel-2.jpeg" alt="">
+                                <div class="w-100 circle-gradient"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 d-flex align-items-start pl-0">
+                            <div class="pt-4 mb-5">
+                                <div class="font-italic pb-3">2021年12月12日-13日</div>
+                                <h5 class="sub-title pb-4">武陵農場楓紅 (WULING FARM)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-unfull mr-3">還有位置</span></div>
+                                <p class="pb-5">有40種以上中高海拔山林鳥類，冬季可見高海拔鳥類降遷棲息與冬候鳥。小型靈巧的茶腹鳾、紅頭山雀、青背山雀、黃山雀，以及溪澗的鉛色水鶇、河烏、小剪尾等，尤以鵂鶹最具特色。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-block d-xl-none mb-200 px-32">
+                    <div class="d-flex">
+                        <div class="col-5 d-flex align-items-start">
+                            <div>
+                                <div class="font-italic pb-3">2021年11月21日-22日</div>
+                                <h5 class="sub-title pb-4">南投梅峰農場(MEI-FENG FARM)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-full mr-3">已額滿</span></div>
+                                <p class="pb-5">農場設立於1937年日治時期，場址位於南投縣仁愛鄉山區。總面積約1092公頃 ，海拔分跨900至2700公尺。場區內氣候變化差異極大，四季鮮明遞嬗，生態資源多元豐富，為一渾然天成的教學研究場域。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-7">
+                            <div class="img-wrap img3 img3-translate-lg">   
+                                <img class="w-100" src="images/travel-3.jpeg" alt="">
+                                <div class="w-100 circle-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- -----------------display md & sm----------------- -->
+                <div class="row row1 d-block d-sm-block d-md-block d-lg-none d-xl-none">
+                    <div class="birdwatching-sub d-flex justify-content-between align-items-center mx-0 border-top border-bottom w-100 px-32 py-4">
+                        <div class="col-12">
+                            <div class="pb-2">
+                                <span class="sub-title font-weight-lighter font-italic">BIRDWATCHING</span>
+                            </div>
+                            <p class="section-title">走，賞鳥趣</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-block d-sm-block d-md-block d-lg-none d-xl-none mb-200 px-32">
+                    <div>
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="birdwatching-content">
+                                <div class="font-italic pb-3">2022年1月9(日)-11(二)</div>
+                                <h5 class="sub-title pb-4">花蓮布洛灣賞鳥遊 (HUALIEN)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-full mr-3">已額滿</span><span class="tag tag-waiting">可排候補</span></div>
+                                <p class="pb-5">花蓮布洛灣臺地是立霧溪下游的大型雙層河階，太魯閣語的意思是「追蹤獵物的地方」，這臺地曾經是太魯閣族人聚居的部落，現今太魯國國家公園管理處在此成立管理站。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 mt-minus-24">
+                            <div class="img-wrap img1-translate-lg">   
+                                <img class="w-100" src="images/travel-1.jpeg" alt="">
+                                <div class="w-100 circle-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-block d-sm-block d-md-block d-lg-none d-xl-none mb-200 px-32">
+                    <div>
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="pt-5">
+                                <div class="font-italic pb-3">2021年12月12日-13日</div>
+                                <h5 class="sub-title pb-4">武陵農場楓紅 (WULING FARM)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-unfull mr-3">還有位置</span></div>
+                                <p class="pb-5">有40種以上中高海拔山林鳥類，冬季可見高海拔鳥類降遷棲息與冬候鳥。小型靈巧的茶腹鳾、紅頭山雀、青背山雀、黃山雀，以及溪澗的鉛色水鶇、河烏、小剪尾等，尤以鵂鶹最具特色。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 mt-minus-24">
+                            <div class="img-wrap img1-translate-lg">   
+                                <img class="w-100" src="images/travel-2.jpeg" alt="">
+                                <div class="w-100 circle-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row2 d-block d-sm-block d-md-block d-lg-none d-xl-none mb-200 px-32">
+                    <div>
+                        <div class="col-12 d-flex align-items-start">
+                            <div class="pt-5">
+                                <div class="font-italic pb-3">2021年11月21日-22日</div>
+                                <h5 class="sub-title pb-4">南投梅峰農場(MEI-FENG FARM)</h5>
+                                <div class="pb-5 pt-1"><span class="tag tag-full mr-3">已額滿</span></div>
+                                <p class="pb-5">農場設立於1937年日治時期，場址位於南投縣仁愛鄉山區。總面積約1092公頃 ，海拔分跨900至2700公尺。場區內氣候變化差異極大，四季鮮明遞嬗，生態資源多元豐富，為一渾然天成的教學研究場域。</p>
+                                <a href="#">
+                                    <div class="join d-flex justify-content-between align-items-center">
+                                        <p>我要報名</p>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12">
+                            <div class="img-wrap img3-translate-sm">   
+                                <img class="w-100" src="images/travel-3.jpeg" alt="">
+                                <div class="w-100 circle-gradient"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-us-section">
+            <div class="container-fluid">
+                <div class="row row2 d-none d-sm-none d-md-none d-lg-none d-xl-block border-bottom mb-5">
+                    <div class="birdwatching-sub d-flex justify-content-between mt-auto">
+                        <div class="col-3">
+                            <div class="d-flex rotate-wrap">
+                                <p class="number rotate">ABOUT US</p>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="d-flex flex-column">
+                                <div class="pb-5">
+                                    <p class="number pb-5">等待中...</p>
+                                </div>
+                                <div class="d-flex mb-5">
+                                    <div class="col-1 px-0">
+                                        <h5 class="sub-title pb-3">緣起</h5>
+                                    </div>
+                                    <div class="col-11 px-0">
+                                        <p>起緣於1973年的「台北賞鳥會」(Taiwan Bird Watcher’s Group)，1984年9月正式立案為民間社團「台北市野鳥學會」(Wild Bird Society of Taipei)。歷年來，進行各項鳥類研究調查、推展各類賞鳥活動，為台灣的鳥類保育工作開拓者</p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex mb-5">
+                                    <div class="col-1 px-0">
+                                        <h5 class="sub-title pb-3">立會宗旨</h5>
+                                    </div>
+                                    <div class="col-11 px-0">
+                                        <p>本會為一群志趣相同、關心和保育野生鳥類及其棲地環境的社會人士所組成的民間社團。為促進國民保護野生鳥類及其棲生環境，致力於野生鳥類之「欣賞、研究與保育」工作，期許培養國民高雅知性情操與保護自然環境觀念，以維護野鳥族群的繁衍及其棲地環境</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row row2 justify-content-center">
+                    <div>
+                        <p>閱讀更多...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="sam-footer">
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>          
+        </div>
+    </footer>
+
+    <!-- ------------------------------------------jQuery------------------------------------------ -->
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> 
+    
+    <script>
+        $('.carousel-wrapper li').hover(function () {
+            $(this).children().eq(1).css('opacity', '1');
+        }, function () {
+            $(this).children().eq(1).css('opacity', '0');
+        });
+
+        let nowIndex = $(this).index();
+
+        $('.arrow-l').click(function () {
+
+            nowIndex -= 1
+            if (nowIndex < 0) {
+                nowIndex = 0
+            }
+
+            let nowX = nowIndex * -280 + 'px';
+            $('.carousel-wrapper').css('transform',`translateX(${nowX})`).css('transition','.8s');
+        });
+
+        $('.arrow-r').click(function () {
+            console.log('hit', nowIndex)
+            nowIndex += 1
+            if (nowIndex > 4) {
+                nowIndex = 4
+            }
+            
+            let nowX = nowIndex * -280 + 'px';
+            $('.carousel-wrapper').css('transform',`translateX(${nowX})`).css('transition','.8s');
+        });
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,1075 @@
+ /* ------------------------------------global------------------------------------ */
+ :root {
+    --main-dark-color: #0B1E27;
+    --main-light-color: #F9F9F9;
+    --standard-spacing: .20rem;
+    --main-border: 1px solid #F9F9F9;
+    --main-border-radius: 30px; 
+}
+
+body {
+    color: var(--main-light-color);
+    background-color: var(--main-dark-color);
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+a {
+    text-emphasis: none;
+    color: var(--main-light-color);
+}
+
+a:hover {
+    color: var(--main-light-color);
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 3rem;
+    padding-bottom: 5rem;
+    opacity: .9;
+}
+
+.sub-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2rem;
+    letter-spacing: 0.03rem;
+    opacity: .8;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pl-32 {
+    padding-left: 32px;
+}
+
+.pr-32 {
+    padding-right: 32px;
+}
+
+.px-32 {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.pl-60 {
+    padding-left: 60px;
+}
+
+.pr-80 {
+    padding-right: 80px;
+}
+
+.pl-200 {
+    padding-left: 200px;
+}
+
+.pl-260 {
+    padding-left: 260px;
+}
+
+.pr-260 {
+    padding-right: 260px;
+}
+
+.mt-minus-24 {
+    margin-top: -24px;
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+}
+
+.mb-200 {
+    margin-bottom: 200px;
+}
+
+.tag {
+    padding: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-radius: var(--main-border-radius);
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.tag-full {
+    background-color: #ED4E0F;
+}
+
+.tag-unfull {
+    background-color: #36B721;
+}
+
+.tag-waiting {
+    background-color: #688ACA;
+}
+
+.arrow-r {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+} 
+
+.arrow-r:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}  
+
+.italic-garamond {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+
+/* -------------------sam navbar------------------- */
+.sam-navbar {
+    background-color: #0b1e272c;
+    border-bottom: 1px solid white;
+    backdrop-filter: blur(6px) opacity(1);
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.logo {
+    width: 14%; 
+    opacity: .95;
+}
+
+.logotype {
+    letter-spacing: .2rem;
+    font-size: 20px;
+}
+
+.sam-navbar-m, .sam-navbar-r div {
+    font-weight: 400;
+    opacity: .9;
+}
+
+.sam-navbar-l, .sam-navbar-m, .sam-navbar-r {
+    width: 33.33%;
+}
+
+.sam-navbar .register {
+    min-width: 100px;
+    min-height: 30px;
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+}
+
+.sam-navbar .search-icon {
+    width: 24px;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.sam-navbar .search-icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.sam-navbar .fa-bars {
+    font-size: 1.6rem;
+}
+
+/* -------------------middle content------------------- */
+.hero-section .container {
+    position: relative;
+}
+
+.hero-section .row1 {
+    padding-top: 70px;
+}
+
+.hero-section .middle-content-lg {
+    height: 100vh;
+    padding-top: 70px;
+}
+
+.hero-section .middle-content-md {
+    height: 40vh;
+    padding-top: 0px;
+}
+
+.hero-section .middle-content-sm {
+    height: 42vh;
+    padding-top: 0px;
+}
+
+.hero-section .italic-garamond {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.hero-section .middle-content-lg .main-title-lg {
+    font-size: 3.75rem;
+    font-weight: 300;
+    opacity: 1;
+}
+
+.hero-section .middle-content-md .main-title-md {
+    font-size: 2.75rem;
+    font-weight: 300;
+    opacity: 1;
+}
+
+.hero-section .middle-content-sm .main-title-sm {
+    font-size: 3.25rem;
+    font-weight: 300;
+    opacity: 1;
+}
+
+.hero-section .middle-content-lg .reading {
+    margin-top: 32px;
+    border-radius: var(--main-border-radius);
+    border: var(--main-border);
+    width: 58%;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.hero-section .middle-content-md .reading {
+    margin-top: 172px;
+    border-radius: var(--main-border-radius);
+    background-color: var(--main-light-color);
+    color: var(--main-dark-color);
+    width: 64%;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.hero-section .reading-sm {
+    margin-top: 30px;
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    width: 60%;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+}
+
+.decoration-line-l {
+    position: absolute;
+    top: 250px;
+    left: 0;
+    transform: translateX(-45%);
+}
+
+.decoration-line-r {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    transform: translateX(40%);
+}
+
+.line-l {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    background-color: var(--main-light-color);
+    height: 300px;
+    width: 1px;
+}
+
+.line-rt {
+    background-color: var(--main-light-color);
+    height: 220px;
+    width: 1px;
+}
+
+.line-rb {
+    background-color: var(--main-light-color);
+    height: 220px;
+    width: 1px;
+}
+
+.decoration-line-l span {
+    min-width: 100px;
+    transform: rotate(-90deg);
+    letter-spacing: var(--standard-spacing);
+    font-size: .75rem;
+}
+
+.cross-lines {
+    width: 20px;
+    height: 20px;  
+    background: 
+        linear-gradient(to top left,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) calc(50% - 0.8px),
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 0) calc(50% + 0.8px),
+            rgba(255, 255, 255, 0) 100%),
+        linear-gradient(to top right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) calc(50% - 0.8px),
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 0) calc(50% + 0.8px),
+            rgba(255, 255, 255, 0) 100%);
+}
+
+.diamond-indicators {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.diamond-1, 
+.diamond-3 {
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--main-light-color);
+  transform: rotate(-45deg);
+}
+
+.diamond-2 {
+    width: 15px;
+    height: 15px;
+    background-color: var(--main-light-color);
+    transform: rotate(-45deg);
+}
+
+/* --------------------------service-------------------------- */
+.hero-section .service-card {
+    height: 100%;
+    position: relative;
+    border: var(--main-border);
+    border-radius: 12px;
+}
+
+.hero-section .img-wrap {
+    width: 104px;
+    height: 104px;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.hero-section .img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding-left: 8px;
+    padding-right: 8px;
+    opacity: .9;
+}
+
+.hero-section .blue-overlay {
+    width: 100px;
+    height: 8px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--main-dark-color);
+    z-index: 998;
+}
+
+
+
+/* ---------------------------------handbook section--------------------------------- */
+.handbook-section .more {
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 200px;
+}
+
+.handbook-section .arrow-wrap img {
+    width: 50%;
+    height: 50%;
+}
+
+.handbook-section .number {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.handbook-section-carousel {
+    width: 100%;
+    background-color: var(--main-dark-color);
+}
+
+.handbook-section-carousel .carousel-wrapper {
+    width: 2800px;
+    display: flex;
+    transform: translateX(0px);
+    transition: .6s;
+}
+
+.handbook-section-carousel .imgs-wrap {
+    max-width: 280px;
+    height: 440px;
+    overflow: hidden;
+    position: relative;
+}
+
+.handbook-section-carousel .imgs-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; 
+}
+
+.handbook-section-carousel .imgs-wrap::after {
+    display: block;
+    position: relative;
+    background-image: radial-gradient(hsla(199, 56%, 10%, 0),
+        hsla(199, 56%, 10%, 1) 60%,
+        hsla(199, 56%, 10%, 1) 70%
+    ); 
+    margin-top: -441px;
+    height: 440px;
+    width: 100%;
+    content: '';
+}
+
+.handbook-section-carousel h6 {
+    opacity: 0;
+}
+
+.imgs-wrap:hover::after { 
+    background-image: radial-gradient(hsla(199, 56%, 10%, 0.1) 68%,
+        hsla(199, 56%, 10%, 1) 70%
+    ); 
+}
+
+.imgs-wrap:hover::after h6 { 
+    opacity: 1;
+    letter-spacing: .1rem;
+}
+
+.handbook-section-carousel .arrow-wrap img {
+    width: 25%;
+    height: 25%;
+}
+
+.handbook-section-carousel .arrow-l,
+.handbook-section-carousel .arrow-r {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}  
+
+.handbook-section-carousel .arrow-l:hover,
+.handbook-section-carousel .arrow-r:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}  
+
+/* ---------------------------------collection section--------------------------------- */
+.diamond-collection-title .row1 {
+    cursor: pointer;
+}
+
+.diamond-collection-title .arrow-wrap img {
+    width: 50%;
+    height: 50%;
+}
+
+.diamond-collection-title {
+    margin-bottom: 125px;
+}
+
+.diamond-collection-title .number-sm {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diamond-collection-section {
+    margin-bottom: 175px;
+}
+
+.diamond__container {
+    max-width: 150px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+.diamond__container .diamond__item {
+    text-decoration: none;
+    font-size: 16px;
+    width: 150px;
+    height: 150px;
+    border: 1px solid var(--main-light-color);
+    margin-top: 61px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    opacity: .4;
+    backface-visibility: hidden; 
+    perspective: 1000;
+    transform: rotate(-45deg);
+}
+
+.diamond__container > li {
+    display: inline-block;
+}
+
+.diamond__container .diamond__item .diamond__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    transform: rotate(45deg);
+}
+
+.diamond__container .diamond__item .diamond__content .content__info {
+    z-index: 10;
+    opacity: 0;
+    transform: translate3d(0, -45px, 0);
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.diamond__container .diamond__item .diamond__content .content__info p {
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.diamond__container .diamond__item:hover {
+    -webkit-animation: flash 1.5s;
+    animation: flash 1.5s;
+    border: 2px solid var(--main-light-color);
+}
+
+.diamond__container .diamond__item:hover .diamond__content .content__info {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0.2s;
+}
+
+@-webkit-keyframes flash {
+    0% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* -------------------images------------------- */
+.diamond__container .diamond__item .diamond__content .content__image--1 {
+    background: url("images/diamond-1.jpg") no-repeat center center ;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--2 {
+    background: url("images/diamond-2.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--3 {
+    background: url("images/diamond-3.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--4 {
+    background: url("images/diamond-4.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--5 {
+    background: url("images/diamond-5.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--6 {
+    background: url("images/diamond-6.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--7 {
+    background: url("images/diamond-7.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--8 {
+    background: url("images/diamond-8.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--9 {
+    background: url("images/diamond-9.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--10 {
+    background: url("images/diamond-10.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image--11 {
+    background: url("images/diamond-11.jpg") no-repeat center center;
+}
+
+.diamond__container .diamond__item .diamond__content .content__image {
+    background-size: cover;
+    height: 200%;
+    width: 200%;
+    margin-top: -50%;
+    margin-left: -50%;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* ---------------------------------birdwatching section--------------------------------- */  
+.birdwatching-section .row2 {
+    height: 100%;
+    border-bottom: 1px solid var(--main-light-color);
+    overflow: hidden;
+}
+
+.birdwatching-section .row1 .section-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    opacity: .9;
+    padding-bottom: 0;
+}
+
+.birdwatching-section .birdwatching-sub {
+    cursor: pointer
+}
+
+.birdwatching-section .birdwatching-content {
+    padding-top: 64px;
+}
+
+.birdwatching-section .img-wrap {
+    position: relative;
+    object-fit: cover;
+    object-position: 50% 50%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.birdwatching-section .birdwatching-sub p {
+    line-height: 4rem;
+}
+
+/* ---------------img1 translate xl--------------- */
+.birdwatching-section .img1-translate-xl {
+    transform: translate(-10%, 2%);
+} 
+
+.birdwatching-section .img2-translate-xl {
+    transform: translate(-10%, 8%);
+} 
+
+
+/* ---------------img1 translate lg--------------- */
+.birdwatching-section .img1-translate-lg {
+    transform: translate(0, 18%);
+} 
+
+.birdwatching-section .img2-translate-lg {
+    transform: translate(-10%, 12%);
+} 
+
+.birdwatching-section .img3-translate-lg {
+    transform: translate(0, 12%);
+} 
+
+/* ---------------img1 translate md & sm--------------- */
+.birdwatching-section .img3-translate-sm {
+    transform: translate(-1%, 8%);
+} 
+
+.birdwatching-section img {
+    width: 96%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.birdwatching-section .img3 img {
+    width: 86%;
+    height: auto;
+    border-radius: 50%;
+} 
+
+.birdwatching-section .circle-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96%;
+    height: 100%;
+    border-radius: 49%;
+    background-image: radial-gradient( hsla(199, 56%, 10%, 0), 
+        hsla(199, 56%, 10%, 0), 
+        hsla(199, 56%, 10%, 0.3) 30%, 
+        hsla(199, 56%, 10%, 0.4) 40%, 
+        hsla(199, 56%, 10%, 1) 70%
+    ); 
+}
+
+.birdwatching-section .img3-gradient {
+    width: 86%;
+}
+
+.birdwatching-section .decoration-line {
+    padding-right: 1rem;
+    background-color: var(--main-light-color);
+    height: 1px;
+    width: 50px;
+}
+
+.birdwatching-section .join {
+    border: var(--main-border);
+    border-radius: var(--main-border-radius);
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 275px;
+}
+
+.birdwatching-section .arrow-r {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+} 
+
+.birdwatching-section .birdwatching-sub:hover .arrow-r {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+}  
+
+.birdwatching-section .arrow-wrap img {
+    width: 50%;
+    height: 50%;
+}
+
+/* -----------------------------------------break point----------------------------------------- */
+@media (min-width: 480px) {
+    /* ------------------hero section------------------ */
+    .hero-section .row1 {
+        padding-top: 36px;
+    }
+
+    .hero-section {
+        background: url("images/main-page-sm-2.jpg") top center no-repeat;
+        background-size: contain;
+    }
+
+    /* ------------------sam navbar------------------ */ 
+    .sam-navbar {
+        height: 60px;
+    }
+
+    /* ------------------service------------------ */
+    .hero-section .row2 {
+        margin-top: 60px;
+        padding-bottom: 70px;
+    }
+
+    .hero-section .col-12 {
+        margin-bottom: 80px;
+    }
+
+    /* ------------------handbook section carousel------------------ */
+    .handbook-section-carousel {
+        margin-bottom: 40px;
+    }
+
+    .handbook-section-carousel .col-12 {
+        overflow: auto;
+    }
+
+    .handbook-section-carousel .col-12::-webkit-scrollbar {
+        display: none;
+    }
+
+    .handbook-section-carousel .arrow-wrap img {
+        width: 60%;
+        height: 60%;
+    }
+
+    /* ---------------diamond collection--------------- */
+    .diamond__container {
+        max-width: 300px;
+    }
+
+    .diamond__container > li {
+        display: block;
+        margin-top: -106px;
+    }
+
+    .diamond__container > li:first-child {
+        margin-top: 0;
+    }
+
+    .diamond__container > li:nth-child(odd) {
+        margin-left: 16px;
+        border-left: none;
+        border-top: none;
+    }
+
+    .diamond__container > li:nth-child(even) {
+        margin-left: 124px;
+        border-left: none;
+        border-top: none;
+    }
+
+    .birdwatching-sub span {
+        letter-spacing: var(--standard-spacing);
+        font-size: 1.75rem;
+    }
+}
+
+@media (min-width: 768px) {
+    /* ------------------hero section------------------ */
+    .hero-section {
+        background: url("images/main-page-bg-2.jpg") top center no-repeat;
+        background-size: contain;
+    }
+
+    .hero-section .row1 {
+        padding-top: 46px;
+    }
+
+    /* ------------------service------------------ */
+    .hero-section .row2 {
+        margin-top: 100px;
+        padding-bottom: 70px;
+    }
+
+    /* ------------------handbook section carousel------------------ */
+    .handbook-section-carousel {
+        margin-bottom: 120px;
+    }
+
+    .handbook-section-carousel .col-12 {
+        overflow: hidden;
+    }
+
+    .handbook-section-carousel .arrow-wrap img {
+        width: 40%;
+        height: 40%;
+    }
+
+    /* ---------------diamond collection--------------- */
+    h1 {
+        font-size: 30px;
+    }
+
+    .diamond__container {
+        max-width: 720px;
+        padding-left: 60px;
+    }
+
+    .diamond__container > li {
+        display: inline-block;
+        margin-top: 22px;
+        padding-right: 16px;
+    }
+
+    .diamond__container > li:nth-child(n+2) {
+        margin-top: -120px;
+        margin-left: 90px;
+        padding-right: 16px;
+    }
+
+    .diamond__container li:nth-child(3n) {
+        padding-left: 28px;
+        margin-left: 10px;
+        margin-right: 130px;
+    }
+
+    .diamond__container > li:nth-child(3n+1) {
+        margin-left: 0;
+    }
+
+    .diamond__container > li:nth-child(3n+5) {
+        margin-left: 90px;
+    }
+
+    .diamond__container > li:nth-child(3n+3) {
+        margin-top: -120px;
+        margin-left: 142px;
+    }
+
+    .diamond__container .diamond__item {
+        width: 230px;
+        height: 230px;
+    }
+
+    /* -------------------birdwatching------------------- */
+    .birdwatching-section .row2 {
+        height: 100%;
+    }
+
+    .birdwatching-sub span {
+        font-size: 3.5rem;
+        letter-spacing: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    /* ------------------hero section------------------ */
+    .hero-section .middle-content-lg {
+        height: 70vh;
+        padding-top: 70px;
+    }
+
+    /* ------------------service------------------ */
+    .hero-section .row2 {
+        margin-top: 140px;
+        padding-bottom: 70px;
+    }
+
+    /* ------------------handbook section carousel------------------ */
+    .handbook-section-carousel {
+        margin-bottom: 120px;
+    }
+
+    .handbook-section-carousel .col-12 {
+        overflow: hidden;
+    }
+
+    .handbook-section-carousel .arrow-wrap img {
+        width: 30%;
+        height: 30%;
+    }
+}
+
+@media (min-width: 1200px) {
+    /* ------------------hero section------------------ */
+    .hero-section .middle-content-lg {
+        height: 100vh;
+        padding-top: 70px;
+    }
+
+    /* ------------------service------------------ */
+    .hero-section .row2 {
+        margin-top: 300px;
+        padding-bottom: 70px;
+    }
+
+    /* ------------------sam navbar------------------ */
+    .hero-section {
+        background: url("images/main-page-bg-2.jpg") top center no-repeat;
+        background-size: cover;
+    }
+
+    .sam-navbar {
+        min-height: 70px;
+    }
+    
+    /* ------------------handbook section carousel------------------ */
+    .handbook-section-carousel {
+        margin-bottom: 120px;
+    }
+
+    .handbook-section-carousel .col-12 {
+        overflow: hidden;
+    }
+
+    .handbook-section-carousel .arrow-wrap img {
+        width: 25%;
+        height: 25%;
+    }
+
+    /* ---------------diamond collection--------------- */
+    .diamond__container {
+        max-width: 1140px;
+        padding-left: 72px;
+    }
+
+    .diamond__container .diamond__item {
+        width: 180px;
+        height: 180px;
+    }
+
+    .diamond__container > li:nth-child(n) {
+        padding: 0;
+        margin: 0;
+        margin-right: 84px;
+    }
+
+    .diamond__container > li:nth-child(5) {
+        margin-left: 134px;
+        margin-right: 84px;
+    }
+
+    .diamond__container > li:nth-child(n+5) {
+        margin-top: -100px;
+    }
+
+    /* -------------------birdwatching------------------- */
+    .birdwatching-section .row2 {
+        max-height: 600px;
+    }
+
+    .birdwatching-sub span {
+        font-size: 3.5rem;
+        letter-spacing: 0;
+    }
+}
+
+/* ---------------------------------about us section--------------------------------- */
+.about-us-section {
+    margin-bottom: 96px;
+}
+
+.about-us-wrap h3 {
+    position: absolute;
+    background-color: red;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-us-section .rotate-wrap {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.about-us-section .rotate {
+    transform: rotate(-90deg);
+}
+
+.about-us-section .number {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 3rem;
+}
+
+.about-us-l,
+.about-us-r {
+    padding: 32px;
+}
